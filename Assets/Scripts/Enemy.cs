@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour {
 
                 // ShotPositionの位置/角度で弾を撃つ
                 ships.Shot(shotPosition);
-                Debug.Log("wh");
+                Debug.Log("e_shots");
             }
 
 

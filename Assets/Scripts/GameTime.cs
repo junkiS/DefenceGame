@@ -7,14 +7,13 @@ using System;
 
 public class GameTime : MonoBehaviour
 {
-
-    public float time = 60;
+    private bool m_countDownStarted;
+    public float m_countDownStartFrom = 3.0f;
+    float m_timer;
 
     public GameObject gameOverText;
 
     public bool isEnd = false;
-
-    private Manager manager;
 
     // Use this for initialization
     void Start()
@@ -22,7 +21,7 @@ public class GameTime : MonoBehaviour
 
         gameOverText.SetActive(false);
 
-        GetComponent<Text>().text = ((int)time).ToString();
+        GetComponent<Text>().text = ((int)m_timer).ToString();
 
 
     }
@@ -30,21 +29,29 @@ public class GameTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.X)) {
-            //一秒ずつ減らしていく
-            time -= Time.deltaTime;
-
-        }
-
-        if (time < 0 && isEnd == false)//０になったらゲームオーバー表示 
+        if (Input.GetKeyDown(KeyCode.X))
         {
+            m_countDownStarted = true;
+            m_timer = m_countDownStartFrom;
+        }
+        if (m_countDownStarted) { 
+        //一秒ずつ減らしていく
+        m_timer -= Time.deltaTime;
+            Debug.Log("Count: " + m_timer.ToString());
+
+    }
+        if (m_timer < 0 && isEnd == false)//０になったらゲームオーバー表示 
+        {
+            m_countDownStarted = false;
+            Debug.Log("count end.");
             gameOverText.SetActive(true);
             isEnd = true;
 
         }
         //マイナスを表示しない
-        if (time < 0) time = 0;
-        GetComponent<Text>().text = (time).ToString("f2");
+        if (m_timer < 0) m_timer = 0;
+        GetComponent<Text>().text = (m_timer).ToString("f2");
+
     }
     /*
 IEnumerator Gameover()

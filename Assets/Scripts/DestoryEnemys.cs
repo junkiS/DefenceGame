@@ -12,7 +12,7 @@ public class DestoryEnemys : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D c)//接触したら呼ぶ
     {
-        Debug.Log("lo");
+        Debug.Log("shototu");
         if (c.gameObject.tag == "Player")
         {
             Explosion();
