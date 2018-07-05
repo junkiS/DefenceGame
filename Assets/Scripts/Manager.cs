@@ -6,11 +6,13 @@ public class Manager : MonoBehaviour {
 
     public GameObject player;
 
-    private GameObject title;
+    public GameObject title;
 
 	// Use this for initialization
 	void Start () {
-        title = GameObject.Find("Title");
+
+        //title = GameObject.Find("/MobileSingleStickControl/Title");
+
 	}
 	
 	// Update is called once per frame

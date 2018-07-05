@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameTime : MonoBehaviour
 {
@@ -23,13 +24,17 @@ public class GameTime : MonoBehaviour
 
         GetComponent<Text>().text = ((int)time).ToString();
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //一秒ずつ減らしていく
-        time -= Time.deltaTime;
+        if(Input.GetKeyDown(KeyCode.X)) {
+            //一秒ずつ減らしていく
+            time -= Time.deltaTime;
+
+        }
 
         if (time < 0 && isEnd == false)//０になったらゲームオーバー表示 
         {
@@ -42,14 +47,14 @@ public class GameTime : MonoBehaviour
         GetComponent<Text>().text = (time).ToString("f2");
     }
     /*
-    IEnumerator Gameover()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            SceneManager.LoadScene("title");
-        }
-        yield return new WaitForSeconds(2.0f);
+IEnumerator Gameover()
+{
+   if (Input.GetMouseButtonDown(0))
+   {
+       SceneManager.LoadScene("title");
+   }
+   yield return new WaitForSeconds(2.0f);
 
-    }*/
+}*/
 
 }
