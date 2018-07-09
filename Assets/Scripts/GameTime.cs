@@ -15,9 +15,15 @@ public class GameTime : MonoBehaviour
 
     public bool isEnd = false;
 
+    Score mScore;
+
     // Use this for initialization
     void Start()
     {
+        mScore = GameObject.Find("Score").GetComponent<Score>();
+        
+        m_countDownStarted = true;
+        m_timer = m_countDownStartFrom;
 
         gameOverText.SetActive(false);
 
@@ -29,11 +35,6 @@ public class GameTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            m_countDownStarted = true;
-            m_timer = m_countDownStartFrom;
-        }
         if (m_countDownStarted) { 
         //一秒ずつ減らしていく
         m_timer -= Time.deltaTime;
@@ -44,6 +45,7 @@ public class GameTime : MonoBehaviour
         {
             m_countDownStarted = false;
             Debug.Log("count end.");
+            mScore.Save();
             gameOverText.SetActive(true);
             isEnd = true;
 
