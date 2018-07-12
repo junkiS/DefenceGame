@@ -231,6 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f268986518d5bb49bcda8bc68f41238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemypower: 1
+  point: 10
 --- !u!114 &114539122577794098
 MonoBehaviour:
   m_ObjectHideFlags: 1

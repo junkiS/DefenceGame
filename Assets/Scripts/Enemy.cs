@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 
     Ships ships;
 
@@ -10,10 +11,15 @@ public class Enemy : MonoBehaviour {
 
     public double Enemypower = 1.0;
 
+    public int point = 10;
+
+    Score nScore;
 
     IEnumerator Start()
     {
         gametime = GameObject.Find("GameTime").GetComponent<GameTime>();//gameTimeコンポーネント
+
+        nScore = GameObject.Find("Score").GetComponent<Score>();
 
         // Spaceshipコンポーネントを取得
         ships = GetComponent<Ships>();
@@ -35,8 +41,8 @@ public class Enemy : MonoBehaviour {
                 yield break;//ループから抜け出して生成を止める
             }
 
-                // 子要素を全て取得する
-                for (int i = 0; i < transform.childCount; i++)
+            // 子要素を全て取得する
+            for (int i = 0; i < transform.childCount; i++)
             {
 
                 Transform shotPosition = transform.GetChild(i);
@@ -52,5 +58,13 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter2D(Collider2D c)//接触したら呼ぶ
+    {
+        Debug.Log("enemy.point");
+        if (c.gameObject.tag == "Player")
+        {
+            nScore.AddPoint(point);
+
+        }
+    }
 }
-   

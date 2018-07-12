@@ -15,6 +15,8 @@ public class GameTime : MonoBehaviour
 
     public bool isEnd = false;
 
+
+
     Score mScore;//ハイスコア
 
     // Use this for initialization

@@ -17,10 +17,11 @@ public class Score : MonoBehaviour {
     private string highScoreKey = "highScore";
 
 
+
 	// Use this for initialization
 	void Start () {
 
-       // highScore.SetActive(false);
+       highScoreText.gameObject.SetActive(false);
 
         Initialize();
 
@@ -55,6 +56,7 @@ public class Score : MonoBehaviour {
 
         PlayerPrefs.SetInt(highScoreKey, highScore);
         PlayerPrefs.Save();
+        highScoreText.gameObject.SetActive(true);
 
         Debug.Log("HighScore Save");
 
