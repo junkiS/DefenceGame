@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour {
 
     public int speed = 10;
 
+    public double bulletpower = 0.5;
+
 	// Use this for initialization
 	void Start () {
 

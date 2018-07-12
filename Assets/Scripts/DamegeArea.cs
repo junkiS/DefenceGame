@@ -5,10 +5,10 @@ using UnityEngine;
 public class DamegeArea : MonoBehaviour {
 
 
-    void OnTriggerExit2D(Collider2D c)
+    void OnTriggerExit2D(Collider2D damege)
     {
 
-
-        Destroy(c.gameObject);
+        Destroy(damege.gameObject);
+        Debug.Log("Damege Area");
     }
 }

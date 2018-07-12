@@ -16,11 +16,15 @@ public class Score : MonoBehaviour {
 
     private string highScoreKey = "highScore";
 
+
 	// Use this for initialization
 	void Start () {
 
+       // highScore.SetActive(false);
+
         Initialize();
 
+        
  	}
 	
 	// Update is called once per frame
@@ -52,7 +56,7 @@ public class Score : MonoBehaviour {
         PlayerPrefs.SetInt(highScoreKey, highScore);
         PlayerPrefs.Save();
 
-        Debug.Log("S Save");
+        Debug.Log("HighScore Save");
 
         Initialize();
     }

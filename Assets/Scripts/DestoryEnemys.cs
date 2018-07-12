@@ -10,6 +10,14 @@ public class DestoryEnemys : MonoBehaviour {
 
     public int point = 10;//スコア用
 
+    Score nScore;//スコアN
+
+    void Start()
+    {
+
+        nScore = GameObject.Find("Score").GetComponent<Score>();
+
+    }
     public void Explosion()//爆発作成
     {
         Instantiate(explosion, transform.position, transform.rotation);
@@ -19,7 +27,7 @@ public class DestoryEnemys : MonoBehaviour {
         Debug.Log("enemy.point");
         if (c.gameObject.tag == "Player")
         {
-            FindObjectOfType<Score>().AddPoint(point);
+           nScore.AddPoint(point);
 
             Explosion();
 

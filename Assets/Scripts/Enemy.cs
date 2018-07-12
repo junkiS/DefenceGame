@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour {
 
     GameTime gametime;
 
+    public double Enemypower = 1.0;
+
 
     IEnumerator Start()
     {
